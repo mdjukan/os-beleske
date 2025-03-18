@@ -1,0 +1,23 @@
+
+A.o:     file format elf64-x86-64
+
+SYMBOL TABLE:
+0000000000000000 l    df *ABS*	0000000000000000 A.c
+0000000000000000 l    d  .text	0000000000000000 .text
+0000000000000000 g     O .data	0000000000000004 n
+0000000000000000 g     F .text	0000000000000019 main
+0000000000000000         *UND*	0000000000000000 print
+
+
+
+Disassembly of section .text:
+
+0000000000000000 <main>:
+   0:	f3 0f 1e fa          	endbr64
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	bf 0a 00 00 00       	mov    $0xa,%edi
+   d:	e8 00 00 00 00       	call   12 <main+0x12>
+  12:	b8 00 00 00 00       	mov    $0x0,%eax
+  17:	5d                   	pop    %rbp
+  18:	c3                   	ret

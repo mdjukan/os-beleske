@@ -1,0 +1,37 @@
+
+B.o:     file format elf64-x86-64
+
+SYMBOL TABLE:
+0000000000000000 l    df *ABS*	0000000000000000 B.c
+0000000000000000 l    d  .text	0000000000000000 .text
+0000000000000000 l    d  .rodata	0000000000000000 .rodata
+0000000000000000 g     F .text	0000000000000044 print
+0000000000000000         *UND*	0000000000000000 printf
+0000000000000000         *UND*	0000000000000000 n
+
+
+
+Disassembly of section .text:
+
+0000000000000000 <print>:
+   0:	f3 0f 1e fa          	endbr64
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	89 7d ec             	mov    %edi,-0x14(%rbp)
+   f:	c7 45 fc 00 00 00 00 	movl   $0x0,-0x4(%rbp)
+  16:	eb 1d                	jmp    35 <print+0x35>
+  18:	8b 45 ec             	mov    -0x14(%rbp),%eax
+  1b:	89 c6                	mov    %eax,%esi
+  1d:	48 8d 05 00 00 00 00 	lea    0x0(%rip),%rax        # 24 <print+0x24>
+  24:	48 89 c7             	mov    %rax,%rdi
+  27:	b8 00 00 00 00       	mov    $0x0,%eax
+  2c:	e8 00 00 00 00       	call   31 <print+0x31>
+  31:	83 45 fc 01          	addl   $0x1,-0x4(%rbp)
+  35:	8b 05 00 00 00 00    	mov    0x0(%rip),%eax        # 3b <print+0x3b>
+  3b:	39 45 fc             	cmp    %eax,-0x4(%rbp)
+  3e:	7c d8                	jl     18 <print+0x18>
+  40:	90                   	nop
+  41:	90                   	nop
+  42:	c9                   	leave
+  43:	c3                   	ret
